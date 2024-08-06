@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fraction", "Fraction/Fraction.csproj", "{D1B3DCBA-B2CA-4765-A416-6D7524B3A372}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fraction.Tests", "Fraction.Tests\Fraction.Tests.csproj", "{BCD0A4DD-614F-43FF-96A8-BF0C7D5574F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1B3DCBA-B2CA-4765-A416-6D7524B3A372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B3DCBA-B2CA-4765-A416-6D7524B3A372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B3DCBA-B2CA-4765-A416-6D7524B3A372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B3DCBA-B2CA-4765-A416-6D7524B3A372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCD0A4DD-614F-43FF-96A8-BF0C7D5574F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCD0A4DD-614F-43FF-96A8-BF0C7D5574F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCD0A4DD-614F-43FF-96A8-BF0C7D5574F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCD0A4DD-614F-43FF-96A8-BF0C7D5574F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
