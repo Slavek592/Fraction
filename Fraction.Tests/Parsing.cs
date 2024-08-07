@@ -38,6 +38,13 @@ public class Parsing
     }
 
     [Fact]
+    public void FractionStringParsing1()
+    {
+        Fraction fraction = new(-12, 5);
+        Assert.True(fraction.ToFractionString() == "-12/5");
+    }
+
+    [Fact]
     public void DoubleParsing1()
     {
         double a = 700.0 / 3.0;

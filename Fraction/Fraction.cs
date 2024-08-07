@@ -6,7 +6,18 @@ public record struct Fraction(long Numerator, long Denominator)
     // TODO: Make shortening more effective!!!
     public void Shorten()
     {
-        for (int i = (int)Math.Pow(Numerator, 0.5); i > 1; i--)
+        if (Denominator < 0)
+        {
+            Denominator = -Denominator;
+            Numerator = -Numerator;
+        }
+        if (Math.Abs(Numerator) == Denominator)
+        {
+            Numerator /= Denominator;
+            Denominator = 1;
+            return;
+        }
+        for (int i = int.Max((int) Math.Pow(Math.Abs(Numerator), 0.5), (int) Math.Pow(Denominator, 0.5)); i > 1; i--)
             if (Numerator % i == 0 && Denominator % i == 0)
             {
                 Numerator /= i;
@@ -26,6 +37,11 @@ public record struct Fraction(long Numerator, long Denominator)
     {
         MustBeReal();
         return ((double) Numerator / (double) Denominator).ToString();
+    }
+
+    public string ToFractionString()
+    {
+        return Numerator.ToString() + '/' + Denominator.ToString();
     }
 
     public long ToLong()
@@ -122,7 +138,7 @@ public record struct Fraction(long Numerator, long Denominator)
     
     public static Fraction operator -(long b, Fraction a)
     {
-        return a with {Numerator = a.Numerator - b * a.Denominator};
+        return a with {Numerator = b * a.Denominator - a.Numerator};
     }
     #endregion
     
@@ -138,12 +154,16 @@ public record struct Fraction(long Numerator, long Denominator)
     
     public static Fraction operator *(Fraction a, long b)
     {
-        return a with {Numerator = a.Numerator * b};
+        Fraction result = a with {Numerator = a.Numerator * b};
+        result.Shorten();
+        return result;
     }
     
     public static Fraction operator *(long b, Fraction a)
     {
-        return a with {Numerator = a.Numerator * b};
+        Fraction result = a with {Numerator = a.Numerator * b};
+        result.Shorten();
+        return result;
     }
     #endregion
     
@@ -159,12 +179,16 @@ public record struct Fraction(long Numerator, long Denominator)
     
     public static Fraction operator /(Fraction a, long b)
     {
-        return a with {Denominator = a.Denominator * b};
+        Fraction result = a with {Denominator = a.Denominator * b};
+        result.Shorten();
+        return result;
     }
 
     public static Fraction operator /(long b, Fraction a)
     {
-        return a with {Denominator = a.Denominator * b};
+        Fraction result = new(b * a.Denominator, a.Numerator);
+        result.Shorten();
+        return result;
     }
     #endregion
     
